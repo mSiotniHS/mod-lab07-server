@@ -6,9 +6,9 @@ public sealed class Server
 {
 	public record CollectedData
 	{
-		public int RequestsReceived { get; set; }
-		public int RequestsAccepted { get; set; }
-		public int RequestsRejected { get; set; }
+		public int RequestsReceived;
+		public int RequestsAccepted;
+		public int RequestsRejected;
 	}
 
 	private readonly BusyThread[] _threads;
