@@ -1,4 +1,4 @@
-﻿namespace App;
+﻿namespace App.Analysis;
 
 public static class Calculator
 {
