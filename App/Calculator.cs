@@ -20,14 +20,12 @@ public static class Calculator
 
 		var avgNumberOfOccupiedChannels = absoluteThroughput / serviceRate;
 
-		return new Statistics
-		{
-			SystemIdlenessProbability = systemIdlenessProbability,
-			SystemFailureProbability = systemFailureProbability,
-			RelativeThroughput = relativeThroughput,
-			AbsoluteThroughput = absoluteThroughput,
-			AvgNumberOfOccupiedChannels = avgNumberOfOccupiedChannels
-		};
+		return new Statistics(
+			systemIdlenessProbability,
+			systemFailureProbability,
+			relativeThroughput,
+			absoluteThroughput,
+			avgNumberOfOccupiedChannels);
 	}
 
 	private static int Factorial(int n) =>
@@ -41,11 +39,25 @@ public static class Calculator
 		};
 }
 
-public struct Statistics
+public readonly struct Statistics
 {
-	public double SystemIdlenessProbability;
-	public double SystemFailureProbability;
-	public double RelativeThroughput;
-	public double AbsoluteThroughput;
-	public double AvgNumberOfOccupiedChannels;
+	public readonly double SystemIdlenessProbability;
+	public readonly double SystemFailureProbability;
+	public readonly double RelativeThroughput;
+	public readonly double AbsoluteThroughput;
+	public readonly double AvgNumberOfOccupiedChannels;
+
+	public Statistics(
+		double systemIdlenessProbability,
+		double systemFailureProbability,
+		double relativeThroughput,
+		double absoluteThroughput,
+		double avgNumberOfOccupiedChannels)
+	{
+		SystemIdlenessProbability = systemIdlenessProbability;
+		SystemFailureProbability = systemFailureProbability;
+		RelativeThroughput = relativeThroughput;
+		AbsoluteThroughput = absoluteThroughput;
+		AvgNumberOfOccupiedChannels = avgNumberOfOccupiedChannels;
+	}
 }
